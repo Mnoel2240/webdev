@@ -1,0 +1,195 @@
+<!DOCTYPE hmtl>
+
+<html>
+	<head>
+		<title></title>
+		<style></style>
+		<script>
+			function initialize()
+			{
+				pennycnt = 0;
+				pennytot = 0.00;
+				pennycntSpan = document.getElementById("pennynumber");
+				pennytotalSpan = document.getElementById("pennytotal");
+				
+				nickelcnt = 0;
+				nickeltot = 0.00;
+				nickelcntSpan = document.getElementById("nickelnumber");
+				nickeltotalSpan = document.getElementById("nickeltotal");
+				
+				dimecnt = 0;
+				dimetot = 0.00;
+				dimecntSpan = document.getElementById("dimenumber");
+				dimetotalSpan = document.getElementById("dimetotal");
+				
+				quartercnt = 0;
+				quartertot = 0.00;
+				quartercntSpan = document.getElementById("quarternumber");
+				quartertotalSpan = document.getElementById("quartertotal");
+				
+				moneytot = 0.00;
+				moneytotalSpan = document.getElementById("moneytotal");
+				
+			}
+			
+		
+			function startover()
+			{
+				location.reload();
+			}
+		
+			<!--These are all of the Penny Functions  -->
+			function subtractPennies()
+			{
+				pennycnt = pennycnt - 1;
+				if (pennycnt <= 0)
+				{
+					pennycnt = 0;
+				}
+				
+				pennytot = pennycnt * 0.01;
+				p = pennytot.toFixed(2);
+				display();
+				
+			}
+			function addPennies()
+			{
+				pennycnt = pennycnt + 1;
+				pennytot = pennycnt * 0.01;
+				p = pennytot.toFixed(2);
+				display();
+				
+			}
+			
+			
+			<!--These are all of the Nickel Functions  -->
+			function subtractNickels()
+			{
+				nickelcnt = nickelcnt - 1;
+				if (nickelcnt <= 0)
+				{
+					nickelcnt = 0;
+				}
+				
+				nickeltot = nickelcnt * 0.05;
+				n = nickeltot.toFixed(2);
+				display();
+				
+			}
+			function addNickels()
+			{
+				nickelcnt = nickelcnt + 1;
+				nickeltot = nickelcnt * 0.05;
+				n = nickeltot.toFixed(2);
+				display();
+			
+			}
+			
+			
+			<!--These are all of the Dime Functions  -->
+		
+			function subtractDimes()
+			{
+				dimecnt = dimecnt - 1;
+				if (dimecnt <= 0)
+				{
+					dimecnt = 0;
+				}
+				dimetot = dimecnt * 0.10;
+				d = dimetot.toFixed(2);
+				display();
+				
+			}
+			function addDimes()
+			{
+				dimecnt = dimecnt + 1;
+				dimetot = dimecnt * 0.10;
+				d = dimetot.toFixed(2);
+				display();
+			}
+			
+			
+			<!--These are all of the Quarter Functions  -->
+			
+			function subtractQuarters()
+			{
+				quartercnt = quartercnt - 1;
+				if (quartercnt <= 0)
+				{
+					quartercnt = 0;
+				}
+				quartertot = quartercnt * 0.25;
+				q = quartertot.toFixed(2);
+				display();
+				
+			}
+			function addQuarters()
+			{
+				quartercnt = quartercnt + 1;
+				quartertot = quartercnt * 0.25;
+				q = quartertot.toFixed(2);
+				display();
+			}
+			
+			
+			<!--This is the Total Money Function -->
+			function display(){
+				
+				moneytot = (pennycnt*0.01+nickelcnt*0.05+dimecnt*0.10+quartercnt*0.25).toFixed(2);
+				moneytotalSpan.innerHTML = moneytot;
+				
+				pennycntSpan.innerHTML = pennycnt;
+				pennytotalSpan.innerHTML = p;
+				nickelcntSpan.innerHTML = nickelcnt;
+				nickeltotalSpan.innerHTML = n;
+				dimecntSpan.innerHTML = dimecnt;
+				dimetotalSpan.innerHTML = d;
+			    quartercntSpan.innerHTML = quartercnt;
+			    quartertotalSpan.innerHTML = q;
+			}
+			
+		
+			
+			
+			
+		</script>
+	</head>
+	
+	
+	<body onload = "initialize();">
+	
+		<!--This is our Penny section  -->
+		<div>The number of pennies  = <span id = "pennynumber">0</span></div>
+		<button onclick = "subtractPennies();">Subtract One</button>
+		<button onclick = "addPennies();"> Add One </button>
+		<div>The total value of the pennies = <span id = "pennytotal">0.00</span></div>
+		
+		<!--This is our Nickel section  -->
+		<div>The number of nickels = <span id = "nickelnumber">0</span></div>
+		<button onclick = "subtractNickels();">Subtract One</button>
+		<button onclick = "addNickels();"> Add One </button>
+		<div>The total value of the nickels = <span id = "nickeltotal">0.00</span></div>
+		
+		<!--This is our Dime section  -->
+		<div>The number of dimes = <span id = "dimenumber">0</span></div>
+		<button onclick = "subtractDimes();">Subtract One</button>
+		<button onclick = "addDimes();"> Add One </button>
+		<div>The total value of the dimes = <span id = "dimetotal">0.00</span></div>
+		
+		
+		<!--This is our Quarter section  -->
+		<div>The number of quarters = <span id = "quarternumber">0</span></div>
+		<button onclick = "subtractQuarters();">Subtract One</button>
+		<button onclick = "addQuarters();"> Add One </button>
+		<div>The total value of the quarters = <span id = "quartertotal">0.00</span></div>
+		
+		<!-- This is our All section. It displays our total value -->
+		<div>The total value of the money = <span id = "moneytotal">0.00</span></div>
+		
+		<!-- This is our reset button -->
+		<button onclick = "startover();">Start Over</button>
+		
+	
+	</body>
+
+</html>
